@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class WidgetPractise {
   void executeExample(){
     //TextExample();
-    BasicLayoutExample();
+    basicLayoutExample();
   }
 }
 
-void TextExample()
+void textExample()
 {
   runApp(
     Text(
@@ -19,7 +19,7 @@ void TextExample()
   );
 }
 
-void BasicLayoutExample()
+void basicLayoutExample()
 {
   runApp(
     Center(
