@@ -3,19 +3,19 @@ import "package:flutter/material.dart";
 
 class StateFulWidgetExample{
    void executeExample(int number){
-    switch (number) {
-          case 1:
-            StateFulWidgetExample1 ex1 = StateFulWidgetExample1();
-            ex1.executeTimeExample();
-            break;
-          default:
-        }
+    StateFulWidgetExample1 ex1 = StateFulWidgetExample1();
+    ex1.executeTimeExample(number);
   }
 }
 
 class StateFulWidgetExample1 {
-  void executeTimeExample(){
-    runApp(Center(child: Time()));
+  void executeTimeExample(int number){
+    switch (number) {
+      case 1:
+        runApp(Center(child: Time()));
+        break;
+      default:
+    }
   }
 }
 
