@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_example/first.dart';
 import 'package:flutter_example/widget_example.dart';
 import 'package:flutter_example/statelesswidget_example.dart';
+import 'package:flutter_example/state_ful_widget.dart';
 
 void main() {
   // runApp(const MyApp());
@@ -12,8 +13,11 @@ void main() {
   // WidgetPractise widgetP = WidgetPractise();
   // widgetP.executeExample();
  
-  StateLessWidgetPractise stateP = StateLessWidgetPractise();
-  stateP.executeExample();
+  // StateLessWidgetPractise stateP = StateLessWidgetPractise();
+  // stateP.executeExample();
+
+  StateFulWidgetExample statefulEx = StateFulWidgetExample();
+  statefulEx.executeExample(1);
 }
 
 class MyApp extends StatelessWidget {
