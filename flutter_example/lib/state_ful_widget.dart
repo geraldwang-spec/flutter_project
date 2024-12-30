@@ -217,9 +217,96 @@ class StateFulWidgetExample1 {
           ) 
         );
         break;
+      case 16:
+        runApp(
+          MaterialApp(
+            home: Scaffold(
+              appBar: AppBar(title: Text('openhome.cc'),),
+              body: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Image.asset('images/caterpillar.png'),
+                  ),
+                  Text('I am Helo'),
+                ],
+              ),
+            ),
+          )
+        );
+        break;
+      case 17:
+        runApp(
+          MaterialApp(
+            home: Scaffold(
+              appBar: AppBar(title: Text('openhome.cc'),),
+              body: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Image(image: AssetImage('images/caterpillar2.png'),
+                      width: 250,
+                      height: 250,
+                    ),
+                  ),
+                  Text('I am Helo'),
+                ],
+              ),
+            ),
+          )
+        );
+        break;
+      case 18:
+        runApp(MyApp());
+        break;
       default:
     }
   }
+}
+
+Future loadString(BuildContext context) async{
+  return await DefaultAssetBundle.of(context).loadString('messages/caterpillar.txt');
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+    State<StatefulWidget> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String _msg = "Loading ...";
+
+  @override
+    void initState() {
+      super.initState();
+      loadString(context).then((msg) {
+        setState(() {
+          _msg = msg;  
+        });
+      });
+    }
+
+  @override
+    Widget build(BuildContext context) {
+      return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('openhome.cc'),
+          ),
+          body: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Center(
+                child: Image.asset('images/caterpillar2.png'),
+              ),
+              Text(_msg),
+            ],
+          ),
+        ),
+      );
+    }
 }
 
 class AppScaffold extends StatelessWidget {

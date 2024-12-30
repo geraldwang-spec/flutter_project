@@ -10,6 +10,7 @@ void basicLayoutExample2()
 {
   runApp(
     Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text('Hello, World!', textAlign: TextAlign.center, textDirection: TextDirection.ltr,
           style: TextStyle(color: Colors.yellow),
@@ -21,7 +22,6 @@ void basicLayoutExample2()
           style: TextStyle(color: Colors.yellow),
         ),
       ],  
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     )
   );
 }

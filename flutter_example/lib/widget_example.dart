@@ -14,27 +14,27 @@ void basicLayoutExample3()
 {
   runApp(
     Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          child: Text('Hello World', textAlign: TextAlign.center, textDirection: TextDirection.ltr,
-            style: TextStyle(color: Colors.yellow),
-          ),
           color: Colors.blue,
           margin: const EdgeInsets.all(20.0),
           width: 200.0,
+          child: Text('Hello World', textAlign: TextAlign.center, textDirection: TextDirection.ltr,
+            style: TextStyle(color: Colors.yellow),
+          ),
         ),
        Container(
+          color: Colors.yellow,
+          margin: const EdgeInsets.all(20.0),
+          width: 400,
           child: Text('哈囉！世界！',
             textAlign: TextAlign.center,
             textDirection: TextDirection.ltr,
             style: TextStyle(color: Colors.blue),
           ),
-          color: Colors.yellow,
-          margin: const EdgeInsets.all(20.0),
-          width: 400,
         )
       ],  
-      mainAxisAlignment: MainAxisAlignment.center,
     )
   );
 }
@@ -43,6 +43,7 @@ void basicLayoutExample2()
 {
   runApp(
     Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Text('Hello, World!', textAlign: TextAlign.center, textDirection: TextDirection.ltr,
           style: TextStyle(color: Colors.yellow),
@@ -53,9 +54,7 @@ void basicLayoutExample2()
         Text('哈囉！QOO！', textAlign: TextAlign.center, textDirection: TextDirection.ltr,
           style: TextStyle(color: Colors.yellow),
         ),
-
       ],  
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
     )
   );
 }
