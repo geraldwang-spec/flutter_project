@@ -10,10 +10,10 @@ void main() {
   //runApp(const AppbarExample());
   // AppBarTest appbarT = AppBarTest();
   // appbarT.executeExample();
-    
+
   // WidgetPractise widgetP = WidgetPractise();
   // widgetP.executeExample();
- 
+
   // StateLessWidgetPractise stateP = StateLessWidgetPractise();
   // stateP.executeExample();
 
@@ -22,7 +22,6 @@ void main() {
 
   SecondPartExample secondE = SecondPartExample();
   secondE.executeExample(1);
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -32,18 +31,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(
-        backgroundColor: Colors.lightGreen,
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: const Text('GeeksforGeeks'),
-        ),
-        body: const Center(
-          child: Text('Hello Geeks'),
-        ),
-      )
-    );
+        title: 'Flutter Demo',
+        home: Scaffold(
+          backgroundColor: Colors.lightGreen,
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+            title: const Text('GeeksforGeeks'),
+          ),
+          body: const Center(
+            child: Text('Hello Geeks'),
+          ),
+        ));
   }
 }
-
