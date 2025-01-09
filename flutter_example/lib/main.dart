@@ -4,6 +4,7 @@ import 'package:flutter_example/second.dart';
 import 'package:flutter_example/widget_example.dart';
 import 'package:flutter_example/statelesswidget_example.dart';
 import 'package:flutter_example/state_ful_widget.dart';
+import 'package:flutter_example/dart_example.dart';
 
 void main() {
   // runApp(const MyApp());
@@ -20,8 +21,10 @@ void main() {
   // StateFulWidgetExample statefulEx = StateFulWidgetExample();
   // statefulEx.executeExample(18);
 
-  SecondPartExample secondE = SecondPartExample();
-  secondE.executeExample(1);
+  // SecondPartExample secondE = SecondPartExample();
+  // secondE.executeExample(1);
+  DartExample dart = DartExample();
+  dart.executeExample(4);
 }
 
 class MyApp extends StatelessWidget {
