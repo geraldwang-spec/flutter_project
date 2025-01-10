@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_example/first.dart';
+import 'package:flutter_example/layouts.dart';
 import 'package:flutter_example/second.dart';
+import 'package:flutter_example/third.dart';
 import 'package:flutter_example/widget_example.dart';
 import 'package:flutter_example/statelesswidget_example.dart';
 import 'package:flutter_example/state_ful_widget.dart';
@@ -23,8 +25,15 @@ void main() {
 
   // SecondPartExample secondE = SecondPartExample();
   // secondE.executeExample(1);
-  DartExample dart = DartExample();
-  dart.executeExample(4);
+
+  // ThirdExample third = ThirdExample();
+  // third.executeExample(1);
+
+  LayoutsExample layout = LayoutsExample();
+  layout.executeExample(1);
+
+  // DartExample dart = DartExample();
+  // dart.executeExample(4);
 }
 
 class MyApp extends StatelessWidget {
