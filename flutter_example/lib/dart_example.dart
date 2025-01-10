@@ -1,6 +1,10 @@
 class DartExample {
   void executeExample(int i) {
     switch (i) {
+      case 0:
+        Animal a = Animal();
+        a.display();
+        break;
       case 1:
         Bicycle bicycle = Bicycle();
         bicycle.color = 'Red';
@@ -77,5 +81,17 @@ class Bicycle {
     print("color: $color");
     print("size: $size");
     print("current speedr $currentSpeed");
+  }
+}
+
+class Animal {
+  String? name;
+  int? numberOfLegs;
+  int? lifeSpan;
+
+  void display() {
+    print('Animal name: $name.');
+    print('Number of Legs: $numberOfLegs.');
+    print('Life Span: $lifeSpan.');
   }
 }
