@@ -6,7 +6,29 @@ class LayoutsExample {
       case 1:
         runApp(LayoutExample1());
         break;
+      case 2:
+        runApp(LayoutExample2());
+        break;
     }
+  }
+}
+
+class LayoutExample2 extends StatelessWidget {
+  const LayoutExample2({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+        title: Center(
+            child: Column(
+          children: [
+            Text('aaa'),
+            Text('ddd'),
+          ],
+        )),
+      )),
+    );
   }
 }
 
