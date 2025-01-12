@@ -9,7 +9,31 @@ class LayoutsExample {
       case 2:
         runApp(LayoutExample2());
         break;
+      case 3:
+        runApp(LayoutExample3());
+        break;
     }
+  }
+}
+
+class LayoutExample3 extends StatelessWidget {
+  const LayoutExample3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+          appBar: AppBar(
+            title: Text('Layout Example3'),
+          ),
+          body: ListView(
+            children: const [
+              BoarderedImage(),
+              BoarderedImage(),
+              BoarderedImage(),
+            ],
+          )),
+    );
   }
 }
 
@@ -21,10 +45,11 @@ class LayoutExample2 extends StatelessWidget {
       home: Scaffold(
           appBar: AppBar(
         title: Center(
-            child: Column(
+            child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('aaa'),
-            Text('ddd'),
+            BoarderedImage(),
+            BoarderedImage(),
           ],
         )),
       )),

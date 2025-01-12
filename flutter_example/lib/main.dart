@@ -7,6 +7,7 @@ import 'package:flutter_example/widget_example.dart';
 import 'package:flutter_example/statelesswidget_example.dart';
 import 'package:flutter_example/state_ful_widget.dart';
 import 'package:flutter_example/dart_example.dart';
+import 'package:flutter_example/state_management.dart';
 
 void main() {
   // runApp(const MyApp());
@@ -29,8 +30,11 @@ void main() {
   // ThirdExample third = ThirdExample();
   // third.executeExample(1);
 
-  LayoutsExample layout = LayoutsExample();
-  layout.executeExample(2);
+  // LayoutsExample layout = LayoutsExample();
+  // layout.executeExample(3);
+
+  StateManagementExample stateM = StateManagementExample();
+  stateM.executeExample(1);
 
   // DartExample dart = DartExample();
   // dart.executeExample(4);
