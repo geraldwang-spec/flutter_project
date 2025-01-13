@@ -10,6 +10,27 @@ class StateManagementExample {
   }
 }
 
+class ColorState extends InheritedWidget {
+  final Color color;
+  final Function(Color) changeColor;
+
+  const ColorState({
+    super.key,
+    required this.color,
+    required this.changeColor,
+    required super.child,
+  });
+
+  static ColorState of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<ColorState>()!;
+  }
+
+  @override
+  bool updateShouldNotify(ColorState oldWidget) {
+    return color != oldWidget.color;
+  }
+}
+
 class MyCounter2 extends StatelessWidget {
   final int count;
   const MyCounter2({super.key, required this.count});
