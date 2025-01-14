@@ -34,7 +34,7 @@ void main() {
   // layout.executeExample(3);
 
   StateManagementExample stateM = StateManagementExample();
-  stateM.executeExample(1);
+  stateM.executeExample(4);
 
   // DartExample dart = DartExample();
   // dart.executeExample(4);
