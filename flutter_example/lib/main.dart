@@ -34,10 +34,10 @@ void main() {
   // layout.executeExample(3);
 
   StateManagementExample stateM = StateManagementExample();
-  stateM.executeExample(4);
+  stateM.executeExample(6);
 
   // DartExample dart = DartExample();
-  // dart.executeExample(4);
+  // dart.executeExample(5);
 }
 
 class MyApp extends StatelessWidget {

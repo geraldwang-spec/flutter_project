@@ -1,3 +1,7 @@
+import 'dart:isolate';
+
+import 'package:flutter/material.dart';
+
 class DartExample {
   void executeExample(int i) {
     switch (i) {
@@ -29,6 +33,24 @@ class DartExample {
         Chair chair = Chair(name: "Chair1", color: "Red");
         chair.display();
         break;
+      case 5:
+        TestQOO oo = TestQOO();
+        oo.TestFor();
+        break;
+    }
+  }
+}
+
+class TestQOO {
+  void TestFor() {
+    runTask();
+  }
+
+  void runTask() async {
+    int i = 0;
+    for (i = 0; i < 10; i++) {
+      await Future.delayed(Duration(seconds: 2));
+      print("Count = $i");
     }
   }
 }

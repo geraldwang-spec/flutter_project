@@ -16,7 +16,142 @@ class StateManagementExample {
       case 4:
         runApp(ListenableExample());
         break;
+      case 5:
+        runApp(ChangeNotifyExample());
+        break;
+      case 6:
+        runApp(MvvmExample());
+        break;
     }
+  }
+}
+
+// MVVM
+class ColorModel {
+  final int count;
+  final Color color;
+
+  ColorModel({required this.count, required this.color});
+}
+
+class ChangeColorVM extends ChangeNotifier {
+  late ColorModel _colorModel;
+
+  ChangeColorVM(ColorModel model) {
+    _colorModel = model;
+  }
+
+  // int get {return _colorModel.count};
+  // set count(int newCount) {
+  //   if (_colorModel.count != newCount) {
+  //     _colorModel.count = newCount;
+  //     notifyListeners();
+  //   }
+  // }
+
+  // void updateColor(Color newColor) {
+  //   _colorModel = ColorModel(count: _colorModel.count + 1, color: newColor);
+  //   notifyListeners();
+  // }
+}
+
+class MvvmExample extends StatelessWidget {
+  const MvvmExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: MvvmChangeColor(),
+    );
+  }
+}
+
+class MvvmChangeColor extends StatefulWidget {
+  const MvvmChangeColor({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _MvvmChangeColor();
+}
+
+class _MvvmChangeColor extends State<MvvmChangeColor> {
+  @override
+  Widget build(BuildContext context) {
+    return (Scaffold(
+      appBar: AppBar(
+        title: Text('MVVM Example'),
+      ),
+    ));
+  }
+}
+
+// ChnageNotify
+class ChangeNotifyExample extends StatelessWidget {
+  const ChangeNotifyExample({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: ChangeNotifyColor(),
+    );
+  }
+}
+
+class ChangeNotifyForColor extends ChangeNotifier {
+  int _count = 0;
+  int get count => _count;
+  Color _color = Colors.blue;
+  Color get color => _color;
+
+  void increment() {
+    _count++;
+    _color = _color == Colors.blue ? Colors.yellow : Colors.blue;
+    notifyListeners();
+  }
+}
+
+class ChangeNotifyColor extends StatefulWidget {
+  const ChangeNotifyColor({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _ChangeNotifyColor();
+}
+
+class _ChangeNotifyColor extends State<ChangeNotifyColor> {
+  final ChangeNotifyForColor changeColor = ChangeNotifyForColor();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ChangeNotify Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ListenableBuilder(
+              listenable: changeColor,
+              builder: (context, child) {
+                return Column(
+                  children: [
+                    Container(
+                      width: 200,
+                      height: 200,
+                      color: changeColor.color,
+                    ),
+                    Text('Count = ${changeColor.count}'),
+                  ],
+                ); //Text('${changeColor.count}');
+              },
+            )
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: changeColor.increment,
+        child: const Icon(Icons.add),
+      ),
+    );
   }
 }
 
