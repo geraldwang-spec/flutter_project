@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'dart:math' as math;
 
 class StateManagementExample {
@@ -28,31 +29,25 @@ class StateManagementExample {
 
 // MVVM
 class ColorModel {
-  final int count;
+  // final int count;
   final Color color;
 
-  ColorModel({required this.count, required this.color});
+  // ColorModel({required this.count, required this.color});
+  ColorModel({required this.color});
 }
 
 class ChangeColorVM extends ChangeNotifier {
-  late ColorModel _colorModel;
+  ColorModel _colorModel = ColorModel(color: Colors.red);
 
-  ChangeColorVM(ColorModel model) {
-    _colorModel = model;
+  Color get color => _colorModel.color;
+  //int get count => _colorModel.count;
+
+  void toggleColor() {
+    //_colorModel.color == Colors.red ? Colors.blue : Colors.red;
+    _colorModel = ColorModel(
+        color: _colorModel.color == Colors.red ? Colors.blue : Colors.red);
+    notifyListeners();
   }
-
-  // int get {return _colorModel.count};
-  // set count(int newCount) {
-  //   if (_colorModel.count != newCount) {
-  //     _colorModel.count = newCount;
-  //     notifyListeners();
-  //   }
-  // }
-
-  // void updateColor(Color newColor) {
-  //   _colorModel = ColorModel(count: _colorModel.count + 1, color: newColor);
-  //   notifyListeners();
-  // }
 }
 
 class MvvmExample extends StatelessWidget {
@@ -60,9 +55,15 @@ class MvvmExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MvvmChangeColor(),
+    return ChangeNotifierProvider(
+      create: (context) => ChangeColorVM(),
+      child: MaterialApp(
+        home: MvvmChangeColor(),
+      ),
     );
+    //return MaterialApp(
+    //  home: MvvmChangeColor(),
+    //);
   }
 }
 
@@ -76,10 +77,39 @@ class MvvmChangeColor extends StatefulWidget {
 class _MvvmChangeColor extends State<MvvmChangeColor> {
   @override
   Widget build(BuildContext context) {
+    //final viewModel = Provider.of<ChangeColorVM>(context);
     return (Scaffold(
       appBar: AppBar(
         title: Text('MVVM Example'),
       ),
+      body: Center(
+        child: Consumer<ChangeColorVM>(
+          builder: (context, viewModel, child) {
+            return Container(
+              width: 200,
+              height: 200,
+              color: viewModel.color,
+            );
+          },
+        ),
+        //child: Container(
+        //  width: 200,
+        //  height: 200,
+        //  color: viewModel.color,
+        //),
+      ),
+      floatingActionButton: Consumer<ChangeColorVM>(
+        builder: (context, viewModel, child) {
+          return FloatingActionButton(
+            onPressed: viewModel.toggleColor,
+            child: const Icon(Icons.add_reaction),
+          );
+        },
+      ),
+      //floatingActionButton: FloatingActionButton(
+      //  onPressed: viewModel.toggleColor,
+      //  child: Icon(Icons.add_moderator),
+      //),
     ));
   }
 }
