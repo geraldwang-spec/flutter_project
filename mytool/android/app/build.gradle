@@ -8,7 +8,7 @@ plugins {
 android {
     namespace = "com.example.mytool"
     compileSdk = 34
-    ndkVersion = "27.2.124.79018"
+    ndkVersion = "27.2.12479018"
     buildToolsVersion "34.0.0"
 
     compileOptions {
