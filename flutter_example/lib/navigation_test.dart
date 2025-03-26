@@ -51,7 +51,20 @@ class _NavigationExample1 extends State<NavigationExample1> {
                     CustomPaint(
                       size: Size(size.width, 80),
                       painter: BNBCustomPainter(),
-                    )
+                    ),
+                    Center(
+                      heightFactor: 0.6,
+                      child: FloatingActionButton(
+                        backgroundColor: Colors.orange,
+                        shape: CircleBorder(),
+                        elevation: 0.1,
+                        onPressed: () {
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(SnackBar(content: Text("TEST")));
+                        },
+                        child: Icon(Icons.home),
+                      ),
+                    ),
                   ],
                 ),
               ))
@@ -76,7 +89,10 @@ class BNBCustomPainter extends CustomPainter {
     path.quadraticBezierTo(size.width * 0.8, 0, size.width, 20);
     path.lineTo(size.width, size.height);
     path.lineTo(0, size.height);
-    path.lineTo(0, 10);
+    path.lineTo(0, 20);
+    path.close();
+    path.lineTo(0, 20);
+    canvas.drawShadow(path, Colors.black, 5, true);
     canvas.drawPath(path, paint);
   }
 
