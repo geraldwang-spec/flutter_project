@@ -8,6 +8,7 @@ import 'package:flutter_example/statelesswidget_example.dart';
 import 'package:flutter_example/state_ful_widget.dart';
 import 'package:flutter_example/dart_example.dart';
 import 'package:flutter_example/state_management.dart';
+import 'package:flutter_example/navigation_test.dart';
 
 void main() {
   // runApp(const MyApp());
@@ -33,8 +34,11 @@ void main() {
   // LayoutsExample layout = LayoutsExample();
   // layout.executeExample(3);
 
-  StateManagementExample stateM = StateManagementExample();
-  stateM.executeExample(6);
+  //StateManagementExample stateM = StateManagementExample();
+  //stateM.executeExample(6);
+
+  NavigationTest naviM = NavigationTest();
+  naviM.executeExample(1);
 
   // DartExample dart = DartExample();
   // dart.executeExample(5);
