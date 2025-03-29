@@ -52,19 +52,62 @@ class _NavigationExample1 extends State<NavigationExample1> {
                       size: Size(size.width, 80),
                       painter: BNBCustomPainter(),
                     ),
-                    Center(
-                      heightFactor: 0.6,
+                    Positioned(
+                      bottom: 20,
+                      left: size.width / 2 - 30,
                       child: FloatingActionButton(
                         backgroundColor: Colors.orange,
                         shape: CircleBorder(),
                         elevation: 0.1,
                         onPressed: () {
                           ScaffoldMessenger.of(context)
-                              .showSnackBar(SnackBar(content: Text("TEST")));
+                              .showSnackBar(SnackBar(content: Text("Test")));
                         },
-                        child: Icon(Icons.home),
                       ),
                     ),
+                    //Center(
+                    //  heightFactor: 0.6,
+                    //  child: FloatingActionButton(
+                    //    backgroundColor: Colors.orange,
+                    //    shape: CircleBorder(),
+                    //    elevation: 0.1,
+                    //    onPressed: () {
+                    //      ScaffoldMessenger.of(context)
+                    //          .showSnackBar(SnackBar(content: Text("TEST")));
+                    //    },
+                    //    child: Icon(Icons.home),
+                    //  ),
+                    //),
+                    Container(
+                      width: double.infinity,
+                      height: 80,
+                      color: Colors.transparent,
+                      padding: EdgeInsets.symmetric(horizontal: 16.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.shape_line_outlined,
+                              color: Colors.black,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.restaurant_menu_sharp),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.bookmark),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(Icons.notification_add),
+                          ),
+                        ],
+                      ),
+                    )
                   ],
                 ),
               ))
@@ -99,6 +142,7 @@ class BNBCustomPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant CustomPainter oldDelegate) {
     // TODO: implement shouldRepaint
-    throw UnimplementedError();
+    //throw UnimplementedError();
+    return false;
   }
 }
