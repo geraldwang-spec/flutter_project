@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'ui/joystick.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,7 +28,61 @@ class MyHomePage extends StatefulWidget {
 
   @override
   //State<MyHomePage> createState() => _MyHomePageState();
-  State<MyHomePage> createState() => _JoystickDemoState();
+  //State<MyHomePage> createState() => _JoystickDemoState();
+  State<MyHomePage> createState() => _testJoystickSelector();
+}
+
+class _testJoystickSelector extends State<MyHomePage> {
+  double x = 0, y = 0;
+  double step = 5;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      backgroundColor: Colors.black12,
+      body: Stack(
+        children: [
+          Positioned(
+            left: MediaQuery.of(context).size.width / 2 + x,
+            top: MediaQuery.of(context).size.height / 2 + y,
+            child: Container(
+              width: 50,
+              height: 50,
+              decoration: BoxDecoration(
+                color: Colors.blue,
+                shape: BoxShape.circle,
+              ),
+            ),
+          ),
+
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: EdgeInsets.all(50),
+              child: JoystickSelector(
+                onJoystickMove: (Offset direction) {
+                  setState(() {
+                    x += direction.dx * step;
+                    y += direction.dy * step;
+                  });
+                },
+                maxRadius: 40,
+                baseSize: 120,
+                handleSize: 40,
+                baseColor: Colors.grey.withOpacity(0.3),
+                handleColor: Colors.white,
+                activeHandleColor: Colors.blue,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class _JoystickDemoState extends State<MyHomePage> {
