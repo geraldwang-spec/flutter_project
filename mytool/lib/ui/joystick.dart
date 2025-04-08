@@ -47,6 +47,7 @@ class _JoystickSelector extends State<JoystickSelector> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      //behavior: HitTestBehavior.opaque,
       onPanStart: (datails) {
         isDragging = true;
       },

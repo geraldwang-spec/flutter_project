@@ -1,8 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:mytool/menu/mainMenu.dart';
 import 'ui/joystick.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class MyCustomDialog extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomLeft,
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.white.withOpacity(0.3),
+      ),
+    );
+  }
+}
+
+class MyCustomDialog1 extends StatefulWidget {
+  const MyCustomDialog1({super.key});
+  @override
+  State<MyCustomDialog1> createState() => _MyCustomDialog1();
+}
+
+class _MyCustomDialog1 extends State<MyCustomDialog1> {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomLeft,
+      child: Container(
+        width: 100,
+        height: 100,
+        color: Colors.white.withOpacity(0.3),
+        child: Text('QOO'),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -35,6 +71,26 @@ class MyHomePage extends StatefulWidget {
 class _testJoystickSelector extends State<MyHomePage> {
   double x = 0, y = 0;
   double step = 5;
+  bool _showButton = true;
+
+  void _showDialog() async {
+    setState(() {
+      _showButton = false;
+    });
+
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        //return MyCustomDialog1();
+        return MainMenu();
+      },
+    );
+
+    setState(() {
+      _showButton = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,23 +117,34 @@ class _testJoystickSelector extends State<MyHomePage> {
 
           Align(
             alignment: Alignment.bottomLeft,
-            child: Padding(
-              padding: EdgeInsets.all(50),
-              child: JoystickSelector(
-                onJoystickMove: (Offset direction) {
-                  setState(() {
-                    x += direction.dx * step;
-                    y += direction.dy * step;
-                  });
-                },
-                maxRadius: 40,
-                baseSize: 120,
-                handleSize: 40,
-                baseColor: Colors.grey.withOpacity(0.3),
-                handleColor: Colors.white,
-                activeHandleColor: Colors.blue,
-              ),
-            ),
+            child:
+                _showButton
+                    ? ElevatedButton(
+                      onPressed: () {
+                        _showDialog();
+                      },
+                      //style: ElevatedButton.styleFrom(
+                      //  shape: CircleBorder(
+                      //    side: BorderSide(width: 5, color: Colors.grey),
+                      //  ),
+                      //),
+                      child: Icon(Icons.menu_open),
+                    )
+                    : SizedBox.shrink(),
+            //child: JoystickSelector(
+            //  onJoystickMove: (Offset direction) {
+            //    setState(() {
+            //      x += direction.dx * step;
+            //      y += direction.dy * step;
+            //    });
+            //  },
+            //  maxRadius: 40,
+            //  baseSize: 120,
+            //  handleSize: 40,
+            //  baseColor: Colors.grey.withOpacity(0.3),
+            //  handleColor: Colors.white,
+            //  activeHandleColor: Colors.blue,
+            //),
           ),
         ],
       ),
