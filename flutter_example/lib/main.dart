@@ -9,6 +9,7 @@ import 'package:flutter_example/state_ful_widget.dart';
 import 'package:flutter_example/dart_example.dart';
 import 'package:flutter_example/state_management.dart';
 import 'package:flutter_example/navigation_test.dart';
+import 'package:flutter_example/login_example.dart';
 
 void main() {
   // runApp(const MyApp());
@@ -16,7 +17,8 @@ void main() {
   // AppBarTest appbarT = AppBarTest();
   // appbarT.executeExample();
 
-  // WidgetPractise widgetP = WidgetPractise();
+  //WidgetPractise widgetP = WidgetPractise();
+  //widgetP.executeExample1(1);
   // widgetP.executeExample();
 
   // StateLessWidgetPractise stateP = StateLessWidgetPractise();
@@ -37,11 +39,14 @@ void main() {
   //StateManagementExample stateM = StateManagementExample();
   //stateM.executeExample(6);
 
-  NavigationTest naviM = NavigationTest();
-  naviM.executeExample(1);
+  //NavigationTest naviM = NavigationTest();
+  //naviM.executeExample(1);
 
   // DartExample dart = DartExample();
   // dart.executeExample(5);
+
+  loginPractise login = loginPractise();
+  login.executeExample(1);
 }
 
 class MyApp extends StatelessWidget {
@@ -51,16 +56,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        home: Scaffold(
-          backgroundColor: Colors.lightGreen,
-          appBar: AppBar(
-            backgroundColor: Colors.green,
-            title: const Text('GeeksforGeeks'),
-          ),
-          body: const Center(
-            child: Text('Hello Geeks'),
-          ),
-        ));
+      title: 'Flutter Demo',
+      home: Scaffold(
+        backgroundColor: Colors.lightGreen,
+        appBar: AppBar(
+          backgroundColor: Colors.green,
+          title: const Text('GeeksforGeeks'),
+        ),
+        body: const Center(child: Text('Hello Geeks')),
+      ),
+    );
   }
 }
