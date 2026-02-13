@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_example/loginEx/pages/home_page.dart';
+import 'package:flutter_example/loginEx/pages/main_page.dart';
 import 'package:flutter_example/styles/app_colors.dart';
 import 'package:flutter_example/loginEx/pages/login_page.dart';
 
@@ -24,10 +25,15 @@ class loginExample1 extends StatelessWidget {
       theme: ThemeData(
         fontFamily: 'Urbanist',
         scaffoldBackgroundColor: AppColors.background,
+        brightness: Brightness.dark,
       ),
       //home: LoginPage(),
       initialRoute: '/',
-      routes: {'/': (context) => LoginPage(), '/home': (context) => HomePage()},
+      routes: {
+        '/': (context) => LoginPage(),
+        '/home': (context) => HomePage(),
+        '/main': (context) => MainPage(),
+      },
     );
   }
 }
